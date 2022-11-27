@@ -32,7 +32,7 @@
   // SIZES
   @include generate-css-custom-props(sz, $sizes-map);
 
-  // SIZES
+  // Z INDICES
   @include generate-css-custom-props(z, $z-indices-map);
 
   // SPACING
