@@ -1,0 +1,34 @@
+@use './breakpoints' as *;
+@use './functions' as *;
+
+// MEDIA QUERY
+@mixin mq($breakpoint: mobile) {
+  @if $breakpoint != mobile and $breakpoint != tablet and $breakpoint != desktop
+  {
+    @error 'Argument $breakpoint must be "mobile", "tablet", or "desktop".';
+  }
+
+  @if $breakpoint == mobile {
+    @content;
+  } @else {
+    $window-width: map-get($breakpoints-map, $breakpoint);
+    @media screen and (min-width: $window-width) {
+      @content;
+    }
+  }
+}
+
+// GENERATE CSS CUSTOM PROPERTIES
+@mixin generate-css-custom-props($prefix, $map) {
+  @if type-of($prefix) != 'string' {
+    @error 'Argument $prefix must be of type "string".';
+  }
+  @if not is-map($map) {
+    @error 'Argument $map must be of type "map".';
+  }
+
+  $resolved-map: resolve-css-custom-props-maps($map);
+  @each $key, $val in $resolved-map {
+    --#{$prefix}-#{$key}: #{$val};
+  }
+}

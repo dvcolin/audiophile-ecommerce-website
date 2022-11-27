@@ -7,7 +7,7 @@ export default function Home() {
         <title>Audiophile Ecommerce Website</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Home Page</h1>
+      <p>Home Page</p>
     </>
   );
 }

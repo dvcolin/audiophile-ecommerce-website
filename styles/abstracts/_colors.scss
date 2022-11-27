@@ -1,0 +1,64 @@
+$peru: #d87d4a;
+$very-light-tangelo: #fbaf85;
+$white: #fff;
+$lotion: #fafafa;
+$anti-flash-white: #f1f1f1;
+$american-silver: #cfcfcf;
+$black: #000;
+$chinese-black: #101010;
+$persian-red: #cd2c2c;
+
+$colors-map: (
+  bg: (
+    default: $lotion,
+    inverse: $chinese-black,
+    brand: (
+      default: $peru
+    )
+  ),
+  text: (
+    default: rgba($black, 0.5),
+    secondary: $black,
+    inverse: (
+      default: rgba($white, 0.5),
+      secondary: $white
+    ),
+    brand: (
+      default: $peru
+    ),
+    error: $persian-red
+  ),
+  layer: (
+    1: (
+      bg: $anti-flash-white
+    )
+  ),
+  button: (
+    primary: (
+      bg: (
+        default: $peru,
+        hover: $very-light-tangelo
+      ),
+      text: (
+        default: $white
+      )
+    ),
+    secondary: (
+      bg: (
+        default: $white,
+        hover: $black
+      ),
+      text: (
+        default: $black,
+        hover: $white
+      )
+    )
+  ),
+  field: (
+    border: (
+      default: $american-silver,
+      active: $peru,
+      error: $persian-red
+    )
+  )
+);

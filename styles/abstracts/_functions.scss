@@ -1,0 +1,33 @@
+@use 'sass:map';
+
+@function is-map($var) {
+  @return type-of($var) == 'map';
+}
+
+@function resolve-css-custom-props-map($map, $starting-key, $new-map: ()) {
+  @each $key, $val in $map {
+    @if $key != default {
+      $key: #{$starting-key}-#{$key};
+    } @else {
+      $key: $starting-key;
+    }
+    @if not is-map($val) {
+      $new-map: map.set($new-map, $key, $val);
+    } @else if is-map($val) {
+      $new-map: map-merge($new-map, resolve-css-custom-props-map($val, $key));
+    }
+  }
+  @return $new-map;
+}
+
+@function resolve-css-custom-props-maps($map) {
+  $new-map: ();
+  @each $key, $val in $map {
+    @if not is-map($val) {
+      $new-map: map.set($new-map, $key, $val);
+    } @else if is-map($val) {
+      $new-map: map-merge($new-map, resolve-css-custom-props-map($val, $key));
+    }
+  }
+  @return $new-map;
+}

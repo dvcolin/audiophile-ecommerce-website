@@ -6,7 +6,7 @@ const Configuration: UserConfig = {
     'scope-enum': [
       2,
       'always',
-      ['pages', 'components', 'utils', 'assets', 'api', 'config']
+      ['pages', 'components', 'styles', 'utils', 'assets', 'api', 'config']
     ],
     'scope-empty': [2, 'never']
   }

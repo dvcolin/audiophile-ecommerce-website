@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+:root {
+  // FONT SIZES
+  @each $breakpoint, $font-sizes-map in map-get($typography-map, font-sizes) {
+    @include mq($breakpoint) {
+      @include generate-css-custom-props(fs, $font-sizes-map);
+    }
+  }
+
+  // FONT WEIGHTS
+  @include generate-css-custom-props(
+    fw,
+    map-get($typography-map, font-weights)
+  );
+
+  // LINE HEIGHTS
+  @include generate-css-custom-props(
+    lh,
+    map-get($typography-map, line-heights)
+  );
+
+  // LETTER SPACINGS
+  @include generate-css-custom-props(
+    ls,
+    map-get($typography-map, letter-spacings)
+  );
+
+  // COLORS
+  @include generate-css-custom-props(clr, $colors-map);
+
+  // SIZES
+  @include generate-css-custom-props(sz, $sizes-map);
+
+  // SIZES
+  @include generate-css-custom-props(z, $z-indices-map);
+
+  // SPACING
+  @for $i from 0 through 24 {
+    --spc-#{$i}: #{$i * 0.4}rem;
+  }
+}
