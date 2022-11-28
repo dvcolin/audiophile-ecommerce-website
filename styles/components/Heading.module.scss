@@ -1,0 +1,57 @@
+// BASE STYLES
+%heading {
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+}
+
+// TAG VARIANTS
+.h1 {
+  @extend %heading;
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-wider);
+}
+
+.h2 {
+  @extend %heading;
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-wider);
+}
+
+.h3 {
+  @extend %heading;
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-wide);
+}
+
+.h4 {
+  @extend %heading;
+  font-size: var(--fs-xl);
+  line-height: var(--lh-shorter);
+  letter-spacing: var(--ls-wider);
+}
+
+.h5 {
+  @extend %heading;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-shorter);
+  letter-spacing: var(--ls-wider);
+}
+
+.h6 {
+  @extend %heading;
+  font-size: var(--fs-md);
+  line-height: var(--lh-shorter);
+  letter-spacing: var(--ls-wide);
+}
+
+// COLOR VARIANTS
+.color--default {
+  color: var(--clr-text-secondary);
+}
+
+.color--inverse {
+  color: var(--clr-text-inverse-secondary);
+}

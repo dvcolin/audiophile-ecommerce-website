@@ -21,9 +21,11 @@ $typography-map: (
     )
   ),
   line-heights: (
-    normal: normal,
+    none: 1,
+    shorter: 1.33,
     short: 1.5,
-    base: 1.667
+    base: 1.67,
+    tall: 1.92
   ),
   letter-spacings: (
     normal: 0,

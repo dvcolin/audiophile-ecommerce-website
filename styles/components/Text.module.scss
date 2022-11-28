@@ -1,0 +1,9 @@
+// BASE STYLES
+.container {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  letter-spacing: var(--ls-normal);
+  font-weight: var(--fw-medium);
+  color: var(--clr-text);
+  max-width: 80ch;
+}
