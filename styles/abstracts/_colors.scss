@@ -8,57 +8,62 @@ $black: #000;
 $chinese-black: #101010;
 $persian-red: #cd2c2c;
 
-$colors-map: (
-  bg: (
-    default: $lotion,
-    inverse: $chinese-black,
-    brand: (
-      default: $peru
+$colors: (
+  base: (
+    bg: (
+      default: $lotion,
+      inverse: $chinese-black
+    ),
+    text: (
+      default: (
+        default: rgba($black, 0.5),
+        secondary: $black
+      ),
+      inverse: (
+        default: rgba($white, 0.5),
+        secondary: $white
+      )
     )
   ),
-  text: (
-    default: rgba($black, 0.5),
-    secondary: $black,
-    inverse: (
-      default: rgba($white, 0.5),
-      secondary: $white
-    ),
+  common: (
     brand: (
       default: $peru
     ),
     error: $persian-red
   ),
-  layer: (
-    1: (
-      bg: $anti-flash-white
-    )
-  ),
-  button: (
-    primary: (
+  components: (
+    button: (
       bg: (
-        default: $peru,
-        hover: $very-light-tangelo
+        primary: (
+          default: $peru,
+          hover: $very-light-tangelo
+        ),
+        secondary: (
+          default: $white,
+          hover: $black
+        ),
+        tertiary: (
+          default: transparent
+        )
       ),
       text: (
-        default: $white
-      )
-    ),
-    secondary: (
-      bg: (
-        default: $white,
-        hover: $black
+        primary: (
+          default: $white
+        ),
+        secondary: (
+          default: $black,
+          hover: $white
+        ),
+        tertiary: (
+          default: rgba($black, 0.5),
+          hover: $peru
+        )
       ),
-      text: (
-        default: $black,
-        hover: $white
+      border: (
+        secondary: (
+          default: $black
+        )
       )
-    )
-  ),
-  field: (
-    border: (
-      default: $american-silver,
-      active: $peru,
-      error: $persian-red
     )
   )
 );

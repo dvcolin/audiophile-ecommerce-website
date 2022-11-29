@@ -1,12 +1,8 @@
-$sizes-map: (
-  container: (
-    width
-  ),
-  field: (
-    border: (
-      width: (
-        default: 0.1rem,
-        error: 0.2rem
+$sizes: (
+  components: (
+    button: (
+      border: (
+        secondary: 0.1rem
       )
     )
   )

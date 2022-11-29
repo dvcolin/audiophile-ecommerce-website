@@ -1,6 +1,9 @@
 import { Manrope } from '@next/font/google';
 
+import Container from '@components/Container';
 import styles from '@styles/components/Layout.module.scss';
+
+import Navbar from './Navbar';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -15,7 +18,12 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className={`${manrope.variable}`}>
-      <div className={styles.container}>{children}</div>
+      <div className={styles.container}>
+        <Navbar />
+        <main>
+          <Container>{children}</Container>
+        </main>
+      </div>
     </div>
   );
 }

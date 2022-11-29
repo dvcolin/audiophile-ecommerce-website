@@ -1,0 +1,55 @@
+@use '../abstracts/mixins' as *;
+
+%base {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-shorter);
+  text-transform: uppercase;
+  transition: all 200ms;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--clr-bg-hover);
+  }
+}
+
+%size-main {
+  padding: var(--spc-4) var(--spc-8);
+}
+
+%border-none {
+  border: none;
+}
+
+%text-color-hover {
+  &:hover {
+    color: var(--clr-text-hover);
+  }
+}
+
+// VARIANTS
+.primary {
+  @include button-props(primary);
+  @extend %base;
+  @extend %size-main;
+  @extend %border-none;
+}
+
+.secondary {
+  @include button-props(secondary);
+  @extend %base;
+  @extend %size-main;
+  @extend %text-color-hover;
+  border-width: var(--sz-border);
+  border-color: var(--clr-border);
+}
+
+.tertiary {
+  @include button-props(tertiary);
+  @extend %base;
+  @extend %border-none;
+  @extend %text-color-hover;
+}

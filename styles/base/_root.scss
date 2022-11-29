@@ -2,38 +2,29 @@
 
 :root {
   // FONT SIZES
-  @each $breakpoint, $font-sizes-map in map-get($typography-map, font-sizes) {
+  @each $breakpoint, $font-sizes in map-get($typography, font-sizes) {
     @include mq($breakpoint) {
-      @include generate-css-custom-props(fs, $font-sizes-map);
+      @include css-custom-props(fs, $font-sizes);
     }
   }
 
   // FONT WEIGHTS
-  @include generate-css-custom-props(
-    fw,
-    map-get($typography-map, font-weights)
-  );
+  @include css-custom-props(fw, map-get($typography, font-weights));
 
   // LINE HEIGHTS
-  @include generate-css-custom-props(
-    lh,
-    map-get($typography-map, line-heights)
-  );
+  @include css-custom-props(lh, map-get($typography, line-heights));
 
   // LETTER SPACINGS
-  @include generate-css-custom-props(
-    ls,
-    map-get($typography-map, letter-spacings)
-  );
+  @include css-custom-props(ls, map-get($typography, letter-spacings));
 
-  // COLORS
-  @include generate-css-custom-props(clr, $colors-map);
+  // BACKGROUND AND TEXT COLORS
+  @include base-color-props;
 
-  // SIZES
-  @include generate-css-custom-props(sz, $sizes-map);
+  // COMMON COLORS
+  @include css-custom-props(clr, map-get($colors, common));
 
   // Z INDICES
-  @include generate-css-custom-props(z, $z-indices-map);
+  @include css-custom-props(z, $z-indices);
 
   // SPACING
   @for $i from 0 through 24 {

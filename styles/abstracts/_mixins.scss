@@ -1,7 +1,8 @@
 @use './breakpoints' as *;
 @use './functions' as *;
+@use './colors' as *;
+@use './sizes' as *;
 
-// MEDIA QUERY
 @mixin mq($breakpoint: mobile) {
   @if $breakpoint != mobile and $breakpoint != tablet and $breakpoint != desktop
   {
@@ -11,24 +12,46 @@
   @if $breakpoint == mobile {
     @content;
   } @else {
-    $window-width: map-get($breakpoints-map, $breakpoint);
+    $window-width: map-get($breakpoints, $breakpoint);
     @media screen and (min-width: $window-width) {
       @content;
     }
   }
 }
 
-// GENERATE CSS CUSTOM PROPERTIES
-@mixin generate-css-custom-props($prefix, $map) {
+@mixin css-custom-props($prefix, $map, $startingKey: null) {
   @if type-of($prefix) != 'string' {
     @error 'Argument $prefix must be of type "string".';
   }
-  @if not is-map($map) {
-    @error 'Argument $map must be of type "map".';
-  }
 
-  $resolved-map: resolve-css-custom-props-maps($map);
+  $resolved-map: resolve-css-custom-props-map($map, $startingKey);
   @each $key, $val in $resolved-map {
     --#{$prefix}-#{$key}: #{$val};
+  }
+}
+
+@mixin base-color-props($variant: default) {
+  $keys: (bg, text);
+  @each $key in $keys {
+    $color-props: get-color-props(base, $key, $variant);
+    @include css-custom-props(clr, $color-props, $key);
+  }
+}
+
+@mixin button-props($variant) {
+  $color-keys: (bg, text, border);
+  @each $key in $color-keys {
+    $color-props: get-component-props($colors, button, $key, $variant);
+    @if $color-props {
+      @include css-custom-props(clr, $color-props, $key);
+    }
+  }
+
+  $size-keys: (border);
+  @each $key in $size-keys {
+    $size-props: get-component-props($sizes, button, $key, $variant);
+    @if $size-props {
+      @include css-custom-props(sz, $size-props, $key);
+    }
   }
 }

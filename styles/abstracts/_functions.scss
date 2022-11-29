@@ -1,33 +1,36 @@
 @use 'sass:map';
+@use '../abstracts/colors' as *;
 
 @function is-map($var) {
   @return type-of($var) == 'map';
 }
 
-@function resolve-css-custom-props-map($map, $starting-key, $new-map: ()) {
-  @each $key, $val in $map {
-    @if $key != default {
-      $key: #{$starting-key}-#{$key};
-    } @else {
-      $key: $starting-key;
-    }
-    @if not is-map($val) {
-      $new-map: map.set($new-map, $key, $val);
-    } @else if is-map($val) {
-      $new-map: map-merge($new-map, resolve-css-custom-props-map($val, $key));
-    }
-  }
-  @return $new-map;
+@function get-color-props($group, $keys...) {
+  @return map-get($colors, $group, $keys...);
 }
 
-@function resolve-css-custom-props-maps($map) {
-  $new-map: ();
-  @each $key, $val in $map {
-    @if not is-map($val) {
-      $new-map: map.set($new-map, $key, $val);
-    } @else if is-map($val) {
-      $new-map: map-merge($new-map, resolve-css-custom-props-map($val, $key));
+@function get-component-props($map, $component, $keys...) {
+  @return map-get($map, components, $component, $keys...);
+}
+
+@function resolve-css-custom-props-map($var, $startingKey, $newMap: ()) {
+  @if not is-map($var) and $startingKey {
+    $newMap: map.set($newMap, $startingKey, $var);
+  } @else if is-map($var) {
+    @each $key, $val in $var {
+      @if $startingKey {
+        @if $key != default {
+          $key: #{$startingKey}-#{$key};
+        } @else {
+          $key: #{$startingKey};
+        }
+      }
+      @if not is-map($val) {
+        $newMap: map.set($newMap, $key, $val);
+      } @else if is-map($val) {
+        $newMap: map-merge($newMap, resolve-css-custom-props-map($val, $key));
+      }
     }
   }
-  @return $new-map;
+  @return $newMap;
 }

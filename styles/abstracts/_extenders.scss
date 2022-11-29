@@ -1,0 +1,7 @@
+@use './mixins' as *;
+
+%base-colors-inverse {
+  @include base-color-props(inverse);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+}

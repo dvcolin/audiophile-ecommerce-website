@@ -1,0 +1,6 @@
+@use '../abstracts/extenders';
+
+.container {
+  @extend %base-colors-inverse;
+  height: 7.2rem;
+}

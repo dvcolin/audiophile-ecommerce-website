@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Button from '@components/Button';
 import Heading from '@components/Heading';
 import Text from '@components/Text';
 
@@ -16,6 +17,7 @@ export default function Home() {
         amet iure dolores eius ducimus excepturi aliquam qui quam accusamus
         vitae eum dignissimos ipsum nobis ea, reiciendis id. Placeat, fugiat!
       </Text>
+      <Button variant="primary">See Product</Button>
     </>
   );
 }
