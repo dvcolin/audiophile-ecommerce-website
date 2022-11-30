@@ -1,6 +1,5 @@
 import { Manrope } from '@next/font/google';
 
-import Container from '@components/Container';
 import styles from '@styles/components/Layout.module.scss';
 
 import Navbar from './Navbar';
@@ -20,9 +19,7 @@ export default function Layout({ children }: LayoutProps) {
     <div className={`${manrope.variable}`}>
       <div className={styles.container}>
         <Navbar />
-        <main>
-          <Container>{children}</Container>
-        </main>
+        <main>{children}</main>
       </div>
     </div>
   );

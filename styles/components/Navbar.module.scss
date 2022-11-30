@@ -4,3 +4,7 @@
   @extend %base-colors-inverse;
   height: 7.2rem;
 }
+
+.nav {
+  @extend %centered-container;
+}

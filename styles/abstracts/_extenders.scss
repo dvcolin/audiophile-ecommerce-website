@@ -5,3 +5,11 @@
   background-color: var(--clr-bg);
   color: var(--clr-text);
 }
+
+%centered-container {
+  width: 100%;
+  max-width: 1280px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spc-6);
+}
