@@ -1,6 +1,6 @@
 export enum BaseRoutes {
   Home = '/',
-  Cart = '/cart',
+  Checkout = '/checkout',
   Products = '/products'
 }
 

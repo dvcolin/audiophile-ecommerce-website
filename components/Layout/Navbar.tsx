@@ -22,12 +22,7 @@ export default function Navbar() {
           <Logo />
         </Link>
         <NavLinks variant="header" />
-        <Button
-          as="link"
-          href="/cart"
-          variant="icon"
-          className={cn('cartLink')}
-        >
+        <Button variant="icon" className={cn('cartButton')}>
           <Image src={cartIcon} alt="Shopping cart" />
         </Button>
       </nav>
