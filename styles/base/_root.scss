@@ -27,7 +27,7 @@
   @include css-custom-props(z, $z-indices);
 
   // SPACING
-  @for $i from 0 through 24 {
+  @for $i from 1 through 24 {
     --spc-#{$i}: #{$i * 0.4}rem;
   }
 }

@@ -1,6 +1,6 @@
 import { Manrope } from '@next/font/google';
 
-import styles from '@styles/components/Layout.module.scss';
+import styles from '@/styles/components/Layout.module.scss';
 
 import Navbar from './Navbar';
 

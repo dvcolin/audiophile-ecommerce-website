@@ -1,0 +1,55 @@
+@for $i from 1 through 24 {
+  $val: var(--spc-#{$i});
+
+  .mt-#{$i} {
+    margin-top: $val;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: $val;
+  }
+
+  .my-#{$i} {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+
+  .ml-#{$i} {
+    margin-left: $val;
+  }
+
+  .mr-#{$i} {
+    margin-right: $val;
+  }
+
+  .mx-#{$i} {
+    margin-left: $val;
+    margin-right: $val;
+  }
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}

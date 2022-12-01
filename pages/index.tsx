@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
-import Button from '@components/Button';
-import Heading from '@components/Heading';
-import Text from '@components/Text';
+import Button from '@/components/Button';
+import Heading from '@/components/Heading';
+import Text from '@/components/Text';
 
 export default function Home() {
   return (

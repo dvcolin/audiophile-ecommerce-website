@@ -1,10 +1,14 @@
-import styles from '@styles/components/Button.module.scss';
+import styles from '@/styles/components/Button.module.scss';
+import type { BaseComponentProps } from '@/types/components';
+import { classNames as cn } from '@/utils/styles';
 
-interface ButtonProps {
+interface ButtonProps extends BaseComponentProps {
   variant: 'primary' | 'secondary' | 'tertiary';
   children: React.ReactNode;
 }
 
-export default function Button({ variant, children }: ButtonProps) {
-  return <button className={styles[variant]}>{children}</button>;
+const cx = cn.bind(null, styles);
+
+export default function Button({ variant, classNames, children }: ButtonProps) {
+  return <button className={cx(variant, classNames)}>{children}</button>;
 }
