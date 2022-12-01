@@ -1,4 +1,5 @@
 @use '../abstracts/extenders';
+@use '../abstracts/mixins' as *;
 
 .container {
   @extend %base-colors-inverse;
@@ -7,4 +8,39 @@
 
 .nav {
   @extend %centered-container;
+  @include flex($justify: space-between, $align: center);
+
+  @include mq(tablet) {
+    justify-content: flex-start;
+  }
+
+  @include mq(desktop) {
+    justify-content: space-between;
+  }
+}
+
+.hamburgerButton {
+  @include mq(desktop) {
+    display: none;
+  }
+}
+
+.logoLink {
+  @include mq(tablet) {
+    margin-left: var(--spc-10);
+  }
+
+  @include mq(desktop) {
+    margin-left: 0;
+  }
+}
+
+.cartLink {
+  @include mq(tablet) {
+    margin-left: auto;
+  }
+
+  @include mq(desktop) {
+    margin-left: 0;
+  }
 }

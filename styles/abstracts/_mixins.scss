@@ -19,6 +19,17 @@
   }
 }
 
+@mixin flex($dir: row, $justify: null, $align: null) {
+  display: flex;
+  flex-direction: $dir;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+}
+
 @mixin css-custom-props($prefix, $map, $startingKey: null) {
   @if type-of($prefix) != 'string' {
     @error 'Argument $prefix must be of type "string".';
@@ -52,6 +63,16 @@
     $size-props: get-component-props($sizes, button, $key, $variant);
     @if $size-props {
       @include css-custom-props(sz, $size-props, $key);
+    }
+  }
+}
+
+@mixin link-props($type) {
+  $color-keys: (text);
+  @each $key in $color-keys {
+    $color-props: get-component-props($colors, link, $key, $type);
+    @if $color-props {
+      @include css-custom-props(clr, $color-props, $key);
     }
   }
 }

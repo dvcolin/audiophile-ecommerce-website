@@ -26,6 +26,9 @@
   // Z INDICES
   @include css-custom-props(z, $z-indices);
 
+  // TRANSITIONS
+  @include css-custom-props(tsn, $transitions);
+
   // SPACING
   @for $i from 1 through 24 {
     --spc-#{$i}: #{$i * 0.4}rem;

@@ -1,0 +1,16 @@
+@use '../abstracts/mixins' as *;
+
+.container {
+  &.header,
+  &.footer {
+    @include mq(desktop) {
+      @include flex($justify: space-between, $align: center);
+      gap: var(--spc-8);
+    }
+  }
+}
+
+// VARIANTS
+.header {
+  display: none;
+}

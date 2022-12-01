@@ -1,14 +1,38 @@
+import type { LinkProps } from 'next/link';
+import Link from 'next/link';
+
 import styles from '@/styles/components/Button.module.scss';
 import type { BaseComponentProps } from '@/types/components';
-import { classNames as cn } from '@/utils/styles';
+import { classNames } from '@/utils/styles';
 
-interface ButtonProps extends BaseComponentProps {
-  variant: 'primary' | 'secondary' | 'tertiary';
+interface BaseProps extends BaseComponentProps {
+  variant: 'primary' | 'secondary' | 'tertiary' | 'icon';
   children: React.ReactNode;
 }
 
-const cx = cn.bind(null, styles);
+type ButtonAsButton = BaseProps &
+  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseProps> & {
+    as?: 'button';
+  };
 
-export default function Button({ variant, classNames, children }: ButtonProps) {
-  return <button className={cx(variant, classNames)}>{children}</button>;
+type ButtonAsLink = BaseProps &
+  Omit<LinkProps, keyof BaseProps> & {
+    as: 'link';
+  };
+
+type ButtonProps = ButtonAsButton | ButtonAsLink;
+
+const cn = classNames.bind(null, styles);
+
+export default function Button(props: ButtonProps) {
+  const { className, variant } = props;
+  const allClassNames = cn(variant, className);
+
+  if (props.as === 'link') {
+    const { variant, className, as, ...rest } = props;
+    return <Link className={allClassNames} {...rest} />;
+  } else {
+    const { variant, className, as, ...rest } = props;
+    return <button className={allClassNames} {...rest} />;
+  }
 }

@@ -1,0 +1,21 @@
+@import '../abstracts/mixins';
+
+.container {
+  @include link-props(nav);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-tall);
+  letter-spacing: var(--ls-wider);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  color: var(--clr-text);
+  transition: var(--tsn-normal);
+  padding: var(--spc-1);
+
+  &:hover:not(.active) {
+    color: var(--clr-text-hover);
+  }
+
+  &.active {
+    color: var(--clr-text-active);
+  }
+}

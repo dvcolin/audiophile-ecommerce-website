@@ -44,6 +44,9 @@ $colors: (
         ),
         tertiary: (
           default: transparent
+        ),
+        icon: (
+          default: transparent
         )
       ),
       text: (
@@ -62,6 +65,15 @@ $colors: (
       border: (
         secondary: (
           default: $black
+        )
+      )
+    ),
+    link: (
+      text: (
+        nav: (
+          default: $white,
+          hover: lighten($peru, 15%),
+          active: lighten($peru, 5%)
         )
       )
     )

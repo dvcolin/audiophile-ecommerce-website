@@ -6,7 +6,7 @@
   "useTabs": false,
   "tabWidth": 2,
   "semi": true,
-  "importOrder": ["^(@/(components|styles|utils|types))/(.*)$", "^[./]"],
+  "importOrder": ["^(@/(components|styles|utils|types|public))/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

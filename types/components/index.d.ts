@@ -1,3 +1,3 @@
 export interface BaseComponentProps {
-  classNames?: string;
+  className?: string;
 }

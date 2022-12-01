@@ -2,22 +2,30 @@
 
 %base {
   background-color: var(--clr-bg);
+  cursor: pointer;
+}
+
+%button-main {
+  @extend %base;
   color: var(--clr-text);
   font-size: var(--fs-xs);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-wide);
   line-height: var(--lh-shorter);
   text-transform: uppercase;
-  transition: all 200ms;
-  cursor: pointer;
+  transition: var(--tsn-normal);
 
   &:hover {
     background-color: var(--clr-bg-hover);
   }
 }
 
-%size-main {
+%size-lg {
   padding: var(--spc-4) var(--spc-8);
+}
+
+%size-sm {
+  padding: var(--spc-1);
 }
 
 %border-none {
@@ -33,15 +41,15 @@
 // VARIANTS
 .primary {
   @include button-props(primary);
-  @extend %base;
-  @extend %size-main;
+  @extend %button-main;
+  @extend %size-lg;
   @extend %border-none;
 }
 
 .secondary {
   @include button-props(secondary);
-  @extend %base;
-  @extend %size-main;
+  @extend %button-main;
+  @extend %size-lg;
   @extend %text-color-hover;
   border-width: var(--sz-border);
   border-color: var(--clr-border);
@@ -49,7 +57,15 @@
 
 .tertiary {
   @include button-props(tertiary);
-  @extend %base;
+  @extend %button-main;
+  @extend %size-sm;
   @extend %border-none;
   @extend %text-color-hover;
+}
+
+.icon {
+  @include button-props(icon);
+  @extend %base;
+  @extend %size-sm;
+  @extend %border-none;
 }
