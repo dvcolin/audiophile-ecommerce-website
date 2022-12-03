@@ -11,13 +11,7 @@ export default function SocialMediaLink(props: SocialMediaLinkProps) {
   const { icon, ...rest } = props;
   return (
     <li role="listitem">
-      <Button
-        as="externalLink"
-        variant="icon"
-        target="_blank"
-        rel="noreferrer"
-        {...rest}
-      >
+      <Button as="externalLink" variant="icon" {...rest}>
         {icon}
       </Button>
     </li>

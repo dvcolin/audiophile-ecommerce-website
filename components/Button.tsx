@@ -16,7 +16,7 @@ type ButtonAsButton = BaseProps &
   };
 
 type ButtonAsLink = BaseProps &
-  Omit<LinkProps, keyof BaseProps> & {
+  Omit<LinkProps, keyof BaseProps | 'as'> & {
     as: 'link';
   };
 
@@ -30,17 +30,24 @@ type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsExternalLink;
 const cn = classNames.bind(null, styles);
 
 export default function Button(props: ButtonProps) {
-  const { className, variant } = props;
+  const { as, className, variant } = props;
   const allClassNames = cn(variant, className);
 
-  if (props.as === 'link') {
-    const { variant, className, as, ...rest } = props;
+  if (as === 'link') {
+    const { as, variant, className, ...rest } = props;
     return <Link className={allClassNames} {...rest} />;
-  } else if (props.as === 'externalLink') {
-    const { variant, className, as, ...rest } = props;
-    return <a className={cn(allClassNames, 'externalLink')} {...rest} />;
+  } else if (as === 'externalLink') {
+    const { as, variant, className, ...rest } = props;
+    return (
+      <a
+        className={cn(allClassNames, 'externalLink')}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...rest}
+      />
+    );
   } else {
-    const { variant, className, as, ...rest } = props;
+    const { as, variant, className, ...rest } = props;
     return <button className={allClassNames} {...rest} />;
   }
 }
