@@ -7,12 +7,12 @@ interface HeadingProps extends BaseComponentProps {
   children: React.ReactNode;
 }
 
-const cx = classNames.bind(null, styles);
+const cn = classNames.bind(null, styles);
 
 export default function Heading({
   tag: Component,
   className,
   children
 }: HeadingProps) {
-  return <Component className={cx(Component, className)}>{children}</Component>;
+  return <Component className={cn(Component, className)}>{children}</Component>;
 }

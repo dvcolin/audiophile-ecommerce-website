@@ -20,7 +20,12 @@ type ButtonAsLink = BaseProps &
     as: 'link';
   };
 
-type ButtonProps = ButtonAsButton | ButtonAsLink;
+export type ButtonAsExternalLink = BaseProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseProps> & {
+    as: 'externalLink';
+  };
+
+type ButtonProps = ButtonAsButton | ButtonAsLink | ButtonAsExternalLink;
 
 const cn = classNames.bind(null, styles);
 
@@ -31,6 +36,9 @@ export default function Button(props: ButtonProps) {
   if (props.as === 'link') {
     const { variant, className, as, ...rest } = props;
     return <Link className={allClassNames} {...rest} />;
+  } else if (props.as === 'externalLink') {
+    const { variant, className, as, ...rest } = props;
+    return <a className={cn(allClassNames, 'externalLink')} {...rest} />;
   } else {
     const { variant, className, as, ...rest } = props;
     return <button className={allClassNames} {...rest} />;

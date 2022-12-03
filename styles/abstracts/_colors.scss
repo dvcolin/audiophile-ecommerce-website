@@ -60,6 +60,12 @@ $colors: (
         tertiary: (
           default: rgba($black, 0.5),
           hover: $peru
+        ),
+        icon: (
+          default: $white,
+          link: (
+            hover: $peru
+          )
         )
       ),
       border: (
@@ -72,7 +78,7 @@ $colors: (
       text: (
         nav: (
           default: $white,
-          hover: lighten($peru, 15%),
+          hover: $peru,
           active: lighten($peru, 5%)
         )
       )

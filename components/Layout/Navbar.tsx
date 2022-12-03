@@ -1,29 +1,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Button from '@/components/Button';
-import Logo from '@/components/Logo';
-import NavLinks from '@/components/NavLinks';
-import cartIcon from '@/public/svgs/shared/icon-cart.svg';
-import hamburgerIcon from '@/public/svgs/shared/icon-hamburger.svg';
+import CartIcon from '@/public/svgs/shared/icon-cart.svg';
+import HamburgerIcon from '@/public/svgs/shared/icon-hamburger.svg';
+import Logo from '@/public/svgs/shared/logo.svg';
 import styles from '@/styles/components/Navbar.module.scss';
-import { classNames } from '@/utils/styles';
+import { BaseRoutes } from '@/utils/routes';
 
-const cn = classNames.bind(null, styles);
+import Button from '../Button';
+import NavLinks from '../NavLinks';
 
 export default function Navbar() {
   return (
-    <div className={cn('container')}>
-      <nav className={cn('nav')}>
-        <Button variant="icon" className={cn('hamburgerButton')}>
-          <Image src={hamburgerIcon} alt="Toggle navigation" />
+    <div className={styles.container}>
+      <nav className={styles.nav}>
+        <Button variant="icon" className={styles.hamburgerButton}>
+          <HamburgerIcon />
         </Button>
-        <Link className={cn('logoLink')} href="/">
+        <Link className={styles.logoLink} href={BaseRoutes.Home}>
           <Logo />
         </Link>
         <NavLinks variant="header" />
-        <Button variant="icon" className={cn('cartButton')}>
-          <Image src={cartIcon} alt="Shopping cart" />
+        <Button variant="icon" className={styles.cartButton}>
+          <CartIcon />
         </Button>
       </nav>
     </div>

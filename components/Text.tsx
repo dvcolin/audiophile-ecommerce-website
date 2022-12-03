@@ -6,8 +6,8 @@ interface TextProps extends BaseComponentProps {
   children: React.ReactNode;
 }
 
-const cx = classNames.bind(null, styles);
+const cn = classNames.bind(null, styles);
 
 export default function Text({ className, children }: TextProps) {
-  return <p className={cx('container', className)}>{children}</p>;
+  return <p className={cn('container', className)}>{children}</p>;
 }

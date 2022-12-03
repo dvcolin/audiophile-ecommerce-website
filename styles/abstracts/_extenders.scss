@@ -12,4 +12,8 @@
   min-height: 100%;
   margin: 0 auto;
   padding: 0 var(--spc-6);
+
+  @include mq(tablet) {
+    padding: 0 var(--spc-10);
+  }
 }

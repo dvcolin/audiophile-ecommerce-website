@@ -1,12 +1,9 @@
-import Head from 'next/head';
+import Page from '@/components/Page';
 
 export default function Checkout() {
   return (
-    <>
-      <Head>
-        <title>audiophile - Checkout</title>
-      </Head>
+    <Page title="Checkout">
       <div>Checkout Page</div>
-    </>
+    </Page>
   );
 }

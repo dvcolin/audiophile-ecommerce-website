@@ -1,4 +1,7 @@
+@use '../abstracts/mixins' as *;
+
 .container {
+  @include flex(column);
   min-height: 100vh;
   font-family: var(--ff-body);
   background-color: var(--clr-bg);

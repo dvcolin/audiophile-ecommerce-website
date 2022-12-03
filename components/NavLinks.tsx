@@ -4,23 +4,23 @@ import type { BaseComponentProps } from '@/types/components';
 import { BaseRoutes, ProductsRoutes } from '@/utils/routes';
 import { classNames } from '@/utils/styles';
 
-type NavLinksProps = BaseComponentProps & {
+interface NavLinksProps extends BaseComponentProps {
   variant: 'header' | 'footer';
-};
+}
 
 const cn = classNames.bind(null, styles);
 
 export default function NavLinks({ variant, className }: NavLinksProps) {
   return (
-    <ul className={cn('container', variant, className)} role="list">
+    <ul className={cn(variant, className)} role="list">
       <NavLink href={BaseRoutes.Home}>Home</NavLink>
-      <NavLink href={`${BaseRoutes.Products}${ProductsRoutes.Headphones}`}>
+      <NavLink href={`${BaseRoutes.Products + ProductsRoutes.Headphones}`}>
         Headphones
       </NavLink>
-      <NavLink href={`${BaseRoutes.Products}${ProductsRoutes.Speakers}`}>
+      <NavLink href={`${BaseRoutes.Products + ProductsRoutes.Speakers}`}>
         Speakers
       </NavLink>
-      <NavLink href={`${BaseRoutes.Products}${ProductsRoutes.Earphones}`}>
+      <NavLink href={`${BaseRoutes.Products + ProductsRoutes.Earphones}`}>
         Earphones
       </NavLink>
     </ul>

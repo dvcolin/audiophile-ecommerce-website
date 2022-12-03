@@ -30,6 +30,26 @@
   }
 }
 
+// @mixin grid(
+//   $numColumns: 1,
+//   $columnWidths: (1fr),
+//   $gap: null,
+//   $columnGap: null,
+//   $rowGap: null
+// ) {
+//   display: grid;
+//   grid-template-columns: ;
+//   @if $gap and not ($columnGap or $rowGap) {
+//     gap: $gap;
+//   }
+//   @if $columnGap {
+//     column-gap: $columnGap;
+//   }
+//   @if $rowGap {
+//     row-gap: $rowGap;
+//   }
+// }
+
 @mixin css-custom-props($prefix, $map, $startingKey: null) {
   @if type-of($prefix) != 'string' {
     @error 'Argument $prefix must be of type "string".';
@@ -68,7 +88,7 @@
 }
 
 @mixin link-props($type) {
-  $color-keys: (text);
+  $color-keys: (bg, text);
   @each $key in $color-keys {
     $color-props: get-component-props($colors, link, $key, $type);
     @if $color-props {

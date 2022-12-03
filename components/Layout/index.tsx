@@ -2,6 +2,7 @@ import { Manrope } from '@next/font/google';
 
 import styles from '@/styles/components/Layout.module.scss';
 
+import Footer from './Footer';
 import Navbar from './Navbar';
 
 const manrope = Manrope({
@@ -20,6 +21,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className={styles.container}>
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </div>
     </div>
   );

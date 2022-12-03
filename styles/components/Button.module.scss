@@ -5,21 +5,6 @@
   cursor: pointer;
 }
 
-%button-main {
-  @extend %base;
-  color: var(--clr-text);
-  font-size: var(--fs-xs);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--ls-wide);
-  line-height: var(--lh-shorter);
-  text-transform: uppercase;
-  transition: var(--tsn-normal);
-
-  &:hover {
-    background-color: var(--clr-bg-hover);
-  }
-}
-
 %size-lg {
   padding: var(--spc-4) var(--spc-8);
 }
@@ -35,6 +20,25 @@
 %text-color-hover {
   &:hover {
     color: var(--clr-text-hover);
+  }
+}
+
+%transition-base {
+  transition: var(--tsn-normal);
+}
+
+%button-main {
+  @extend %base;
+  @extend %transition-base;
+  color: var(--clr-text);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-wide);
+  line-height: var(--lh-shorter);
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: var(--clr-bg-hover);
   }
 }
 
@@ -68,4 +72,22 @@
   @extend %base;
   @extend %size-sm;
   @extend %border-none;
+
+  &.externalLink {
+    display: inline-flex;
+
+    &:hover {
+      svg {
+        fill: var(--clr-text-link-hover);
+      }
+    }
+
+    svg {
+      @extend %transition-base;
+    }
+  }
+
+  svg {
+    fill: var(--clr-text);
+  }
 }

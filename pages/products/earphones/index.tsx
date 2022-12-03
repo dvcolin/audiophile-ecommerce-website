@@ -1,12 +1,9 @@
-import Head from 'next/head';
+import Page from '@/components/Page';
 
 export default function Earphones() {
   return (
-    <>
-      <Head>
-        <title>audiophile - Earphones</title>
-      </Head>
+    <Page title="Earphones" description="Discover our high quality earphones.">
       <div>Earphones Page</div>
-    </>
+    </Page>
   );
 }
