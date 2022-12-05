@@ -26,10 +26,13 @@ $colors: (
     )
   ),
   common: (
-    brand: (
-      default: $peru
+    bg: (
+      brand: $peru
     ),
-    error: $persian-red
+    text: (
+      brand: $peru,
+      error: $persian-red
+    )
   ),
   components: (
     button: (
@@ -79,7 +82,7 @@ $colors: (
         nav: (
           default: $white,
           hover: $peru,
-          active: lighten($peru, 5%)
+          active: $very-light-tangelo
         )
       )
     )

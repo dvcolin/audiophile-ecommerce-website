@@ -17,11 +17,8 @@
   // LETTER SPACINGS
   @include css-custom-props(ls, map-get($typography, letter-spacings));
 
-  // BACKGROUND AND TEXT COLORS
+  // BASE COLORS
   @include base-color-props;
-
-  // COMMON COLORS
-  @include css-custom-props(clr, map-get($colors, common));
 
   // Z INDICES
   @include css-custom-props(z, $z-indices);
