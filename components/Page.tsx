@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 interface PageProps {
   title: string;
-  description?: string;
+  description: string | null;
   children: React.ReactNode;
 }
 
