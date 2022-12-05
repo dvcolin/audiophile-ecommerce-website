@@ -1,8 +1,8 @@
 import Page from '@/components/Page';
 import type { ProductCategory } from '@/types/api';
-import { getProductsByCategory } from '@/utils/api';
+import { getProductCategory } from '@/utils/api';
 
-export default function Headphones({ seo, name }: ProductCategory) {
+export default function HeadphonesCategory({ seo, name }: ProductCategory) {
   return (
     <Page title={seo.title} description={seo.description}>
       <div>{name}</div>
@@ -11,7 +11,7 @@ export default function Headphones({ seo, name }: ProductCategory) {
 }
 
 export async function getStaticProps() {
-  const props = await getProductsByCategory('Headphones');
+  const props = await getProductCategory('Headphones');
 
   return {
     props

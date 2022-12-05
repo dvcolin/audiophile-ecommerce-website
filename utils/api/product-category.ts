@@ -8,7 +8,7 @@ import type {
 
 import { hygraph } from './client';
 
-export async function getProductsByCategory(name: ProductCategoryName) {
+export async function getProductCategory(name: ProductCategoryName) {
   const query = gql`
     query ProductCategoryQuery {
       productCategory(where: { name: "${name}" }) {
