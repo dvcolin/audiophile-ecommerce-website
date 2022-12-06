@@ -1,8 +1,9 @@
 import Heading from '@/components/Heading';
 import Page from '@/components/Page';
 import Text from '@/components/Text';
-import { Product, ProductPathsParams } from '@/types/api';
-import { getProductBySlug, getProductSlugsByCategory } from '@/utils/api';
+import type { Product } from '@/hygraph/sdk';
+import type { GetStaticPropsParamsWithSlug } from '@/types/pages';
+import { getProduct, getProductPathsByCategory } from '@/utils/hygraph';
 
 export default function Speakers({ seo, name, description }: Product) {
   return (
@@ -14,17 +15,15 @@ export default function Speakers({ seo, name, description }: Product) {
 }
 
 export async function getStaticPaths() {
-  const products = await getProductSlugsByCategory('Speakers');
-
-  const paths = products.map(product => ({
-    params: { slug: product.slug }
-  }));
+  const paths = await getProductPathsByCategory('speakers');
 
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params: { slug } }: ProductPathsParams) {
-  const props = await getProductBySlug(slug);
+export async function getStaticProps({
+  params: { slug }
+}: GetStaticPropsParamsWithSlug) {
+  const props = await getProduct(slug);
 
   return {
     props

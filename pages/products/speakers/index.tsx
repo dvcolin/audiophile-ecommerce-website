@@ -1,6 +1,6 @@
 import Page from '@/components/Page';
-import type { ProductCategory } from '@/types/api';
-import { getProductCategory } from '@/utils/api';
+import type { ProductCategory } from '@/hygraph/sdk';
+import { getProductCategory } from '@/utils/hygraph';
 
 export default function SpeakersCategory({ seo, name }: ProductCategory) {
   return (
@@ -11,7 +11,7 @@ export default function SpeakersCategory({ seo, name }: ProductCategory) {
 }
 
 export async function getStaticProps() {
-  const props = await getProductCategory('Speakers');
+  const props = await getProductCategory('speakers');
 
   return {
     props

@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-interface PageProps {
-  title: string;
-  description: string | null;
+import type { Seo } from '@/hygraph/sdk';
+
+type PageProps = Omit<Seo, 'id' | 'stage'> & {
   children: React.ReactNode;
-}
+};
 
 export default function Page({ title, description, children }: PageProps) {
   const pageTitle = `Audiophile | ${title}`;

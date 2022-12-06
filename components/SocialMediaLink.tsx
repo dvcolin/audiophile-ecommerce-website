@@ -1,4 +1,4 @@
-import { BaseComponentProps } from '@/types/components';
+import type { BaseComponentProps } from '@/types/components';
 
 import Button from './Button';
 

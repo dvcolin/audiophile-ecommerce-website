@@ -6,3 +6,6 @@
 
 # lock files
 *-lock.json
+
+# hygraph generated types
+/hygraph/sdk.ts

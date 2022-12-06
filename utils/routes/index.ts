@@ -4,7 +4,7 @@ export enum BaseRoutes {
   Products = '/products'
 }
 
-export enum ProductsRoutes {
+export enum ProductCategoryRoutes {
   Headphones = '/headphones',
   Speakers = '/speakers',
   Earphones = '/earphones'

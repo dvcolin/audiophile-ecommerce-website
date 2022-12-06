@@ -1,0 +1,23 @@
+query productCategory($slug: String!) {
+  productCategory(where: { slug: $slug }) {
+    id
+    seo {
+      title
+      description
+    }
+    name
+    slug
+    products {
+      id
+      featuredImage {
+        url
+        width
+        height
+      }
+      label
+      name
+      description
+      slug
+    }
+  }
+}
