@@ -1,17 +1,9 @@
-import Heading from '@/components/Heading';
-import Page from '@/components/Page';
-import Text from '@/components/Text';
-import type { Product } from '@/hygraph/sdk';
+import ProductPage, { ProductPageProps } from '@/components/ProductPage';
 import type { GetStaticPropsParamsWithSlug } from '@/types/pages';
 import { getProduct, getProductPathsByCategory } from '@/utils/hygraph';
 
-export default function Speakers({ seo, name, description }: Product) {
-  return (
-    <Page title={seo.title} description={seo.description}>
-      <Heading tag="h2">{name}</Heading>
-      <Text>{description}</Text>
-    </Page>
-  );
+export default function Speakers(props: ProductPageProps) {
+  return <ProductPage {...props} />;
 }
 
 export async function getStaticPaths() {

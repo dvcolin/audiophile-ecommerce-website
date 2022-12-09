@@ -13,7 +13,7 @@ query product($slug: String!) {
     }
     slug
     featuredImage {
-      url
+      ...imageFields
     }
     label
     name
@@ -26,8 +26,7 @@ query product($slug: String!) {
       name
     }
     galleryImages {
-      id
-      url
+      ...imageFields
     }
     productSuggestions {
       id

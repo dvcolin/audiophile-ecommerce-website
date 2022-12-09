@@ -5,7 +5,7 @@ loadEnvConfig(process.cwd());
 
 const config: CodegenConfig = {
   schema: process.env.HYGRAPH_API_ENDPOINT,
-  documents: 'hygraph/queries/*.graphql',
+  documents: 'hygraph/**/*.graphql',
   generates: {
     './hygraph/sdk.ts': {
       plugins: [

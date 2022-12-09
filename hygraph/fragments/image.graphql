@@ -1,0 +1,8 @@
+fragment imageFields on Asset {
+  id
+  breakpoint
+  url: url(transformation: { document: { output: { format: webp } } })
+  width
+  height
+  altText
+}

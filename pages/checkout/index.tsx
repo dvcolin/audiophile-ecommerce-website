@@ -1,9 +1,5 @@
-import Page from '@/components/Page';
+import Seo from '@/components/Seo';
 
 export default function Checkout() {
-  return (
-    <Page title="Checkout">
-      <div>Checkout Page</div>
-    </Page>
-  );
+  return <Seo seo={{ title: 'Checkout' }} />;
 }

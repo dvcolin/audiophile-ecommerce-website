@@ -1,13 +1,11 @@
-import Page from '@/components/Page';
+import ProductCategoryPage, {
+  ProductCategoryPageProps
+} from '@/components/ProductCategoryPage';
 import type { ProductCategory } from '@/hygraph/sdk';
 import { getProductCategory } from '@/utils/hygraph';
 
-export default function HeadphonesCategory({ seo, name }: ProductCategory) {
-  return (
-    <Page title={seo.title} description={seo.description}>
-      <div>{name}</div>
-    </Page>
-  );
+export default function HeadphonesCategory(props: ProductCategoryPageProps) {
+  return <ProductCategoryPage {...props} />;
 }
 
 export async function getStaticProps() {
